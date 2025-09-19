@@ -1,10 +1,10 @@
-import 'dart:math';
-
 import 'package:davidngwebsite/app/app_dimens.dart';
 import 'package:davidngwebsite/view/section/cover_section.dart';
 import 'package:davidngwebsite/view/widget/background.dart';
-import 'package:davidngwebsite/widget/glass_container.dart';
+import 'package:davidngwebsite/view/widget/bottom_nav.dart';
 import 'package:flutter/material.dart';
+
+import '../model/enums/nav_enums.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -14,6 +14,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  NavEnums currentSection = NavEnums.home;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +31,13 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Spacer(),
-              GlassContainer(
-                height: 64,
-                width:
-                    min(MediaQuery.of(context).size.width, 400) -
-                    AppDimens.marginMedium * 2,
-                borderRadius: BorderRadius.all(Radius.circular(32)),
+              BottomNav(
+                currentSection: currentSection,
+                onTap: (section) {
+                  setState(() {
+                    currentSection = section;
+                  });
+                },
               ),
               kGapMedium,
             ],

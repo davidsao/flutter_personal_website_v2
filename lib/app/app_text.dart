@@ -14,11 +14,11 @@ class DNTextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
   );
-  static final _pontanoSans = GoogleFonts.pontanoSans(
+  static final _poppins = GoogleFonts.poppins(
     height: 1.3,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
-    letterSpacing: 0.1,
+    letterSpacing: 0.5,
   );
 
   static TextStyle get display {
@@ -62,15 +62,19 @@ class DNTextStyles {
   }
 
   static TextStyle get b1 {
-    return _pontanoSans.copyWith(fontSize: 16);
+    return _poppins.copyWith(fontSize: 16);
   }
 
   static TextStyle get b2 {
-    return _pontanoSans.copyWith(fontSize: 14);
+    return _poppins.copyWith(fontSize: 14);
   }
 
   static TextStyle get b3 {
-    return _pontanoSans.copyWith(fontSize: 12);
+    return _poppins.copyWith(fontSize: 12);
+  }
+
+  static TextStyle get b4 {
+    return _poppins.copyWith(fontSize: 11);
   }
 }
 

@@ -47,6 +47,7 @@ class AppDimens {
   static const iconTiny = 12.0;
 }
 
+const kGapSection = Gap(AppDimens.marginExtraLarge * 4);
 const kGapExtraLarge = Gap(AppDimens.marginExtraLarge);
 const kGapLarger = Gap(AppDimens.marginLarger);
 const kGapLarge = Gap(AppDimens.marginLarge);

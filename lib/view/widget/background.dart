@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../app/app_colors.dart';
 import '../../app/app_dimens.dart';
 
 class BackgroundWidget extends StatelessWidget {
@@ -21,7 +22,7 @@ class BackgroundWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(color: Colors.blue.shade900),
+      decoration: BoxDecoration(color: AppColors.background),
       clipBehavior: Clip.hardEdge,
       child: Stack(
         alignment: Alignment.bottomCenter,
@@ -32,8 +33,8 @@ class BackgroundWidget extends StatelessWidget {
             position: (0.0, size * 0.5),
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(128, 160, 203, 255),
-                Color.fromARGB(64, 216, 222, 255),
+                Color.fromARGB(56, 160, 203, 255),
+                Color.fromARGB(28, 216, 222, 255),
               ],
               stops: [0.4, 0.8],
             ),
@@ -47,8 +48,8 @@ class BackgroundWidget extends StatelessWidget {
             position: (0.0, -size * 0.75),
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(64, 225, 213, 255),
-                Color.fromARGB(128, 160, 203, 255),
+                Color.fromARGB(28, 225, 213, 255),
+                Color.fromARGB(56, 160, 203, 255),
               ],
               stops: [0.2, 0.6],
             ),

@@ -92,12 +92,14 @@ class AppColors {
         900: _secondary900,
       });
 
-  static const Color primaryColor = Color(0xFFD75932);
+  static const Color primaryColor = Color.fromARGB(255, 160, 203, 255);
   static const Color secondaryColor = Color(0xFF143C1E);
-  static const Color background = Color(0xFFF8F8FA);
+  static const Color background = Color(0xFF181C34);
+  static const Color cardBackground = Color(0xFF313F88);
   static const Color buttonDisabled = Color(0xFFF0D7CE);
-  static const Color textPrimary = Color(0xFF3C3C3C);
-  static const Color textSecondary = Color(0xFF8E8E8F);
+  static const Color textTitle = Color(0xFF4DB5FF);
+  static const Color textPrimary = Color(0xFF9EABD3);
+  static const Color textSecondary = Color(0xFF616E88);
   static const Color error = Color(0xFFD75932);
   static const Color errorMask = Color.from(
     alpha: 0.1,

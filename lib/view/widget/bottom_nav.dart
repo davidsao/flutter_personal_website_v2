@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:davidngwebsite/model/enums/nav_enums.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../app/app_colors.dart';
 import '../../app/app_dimens.dart';
@@ -48,7 +49,7 @@ class _BottomNavState extends State<BottomNav> {
               itemWidth: itemWidth,
             ),
             child: GlassContainer(
-              color: AppColors.black.withAlpha(100),
+              color: AppColors.primaryColor,
               width: itemWidth,
               height: 56,
               borderRadius: BorderRadius.all(Radius.circular(28)),
@@ -61,10 +62,20 @@ class _BottomNavState extends State<BottomNav> {
                 return Expanded(
                   child: InkWell(
                     onTap: () => widget.onTap(e),
-                    child: Icon(
-                      e.icon(selected: e == widget.currentSection),
-                      color: AppColors.white,
-                    ),
+                    child:
+                        Icon(
+                              e.icon(selected: e == widget.currentSection),
+                              color: e == widget.currentSection
+                                  ? AppColors.primaryColor
+                                  : AppColors.white,
+                            )
+                            .animate(target: e == widget.currentSection ? 1 : 0)
+                            .scale(
+                              begin: Offset(1, 1),
+                              end: Offset(1.25, 1.25),
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeOutBack,
+                            ),
                   ),
                 );
               }),

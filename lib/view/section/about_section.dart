@@ -14,7 +14,6 @@ class AboutSection extends StatelessWidget {
           textAlign: TextAlign.center,
           style: DNTextStyles.m3.copyWith(color: AppColors.black.shade500),
         ),
-        kGapTiny,
         Text(
           'About Me',
           textAlign: TextAlign.center,
@@ -43,25 +42,9 @@ class AboutSection extends StatelessWidget {
               child: Column(
                 children: [
                   Row(
-                    children: [
-                      aboutItem(
-                        Icons.work_history_outlined,
-                        'Experience',
-                        '10+ Years of Work',
-                      ),
-                      kGapText,
-                      aboutItem(
-                        Icons.people_alt_outlined,
-                        'Clients',
-                        '50+ Worldwide',
-                      ),
-                      kGapText,
-                      aboutItem(
-                        Icons.fact_check_outlined,
-                        'Projects',
-                        '25+ Completed',
-                      ),
-                    ],
+                    children: AppStrings.aboutItems.map((e) {
+                      return aboutItem(e.icon, e.title, e.content);
+                    }).toList(),
                   ),
                   kGapLarge,
                   Padding(

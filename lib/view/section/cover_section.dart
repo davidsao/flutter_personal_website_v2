@@ -15,7 +15,6 @@ class CoverSection extends StatelessWidget {
           "Hello! I'm",
           style: DNTextStyles.h3.copyWith(color: AppColors.white),
         ),
-        kGapTiny,
         Text(
           "David Ng",
           style: DNTextStyles.display.copyWith(color: AppColors.white),

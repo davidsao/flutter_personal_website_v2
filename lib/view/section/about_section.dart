@@ -1,9 +1,5 @@
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
-
-import '../../app/app_colors.dart';
-import '../../app/app_dimens.dart';
-import '../../app/app_text.dart';
-import '../../widget/card_widget.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -51,13 +47,15 @@ class AboutSection extends StatelessWidget {
                       aboutItem(
                         Icons.work_history_outlined,
                         'Experience',
-                        '10+ Years',
+                        '10+ Years of Work',
                       ),
+                      kGapText,
                       aboutItem(
                         Icons.people_alt_outlined,
                         'Clients',
                         '50+ Worldwide',
                       ),
+                      kGapText,
                       aboutItem(
                         Icons.fact_check_outlined,
                         'Projects',
@@ -66,17 +64,16 @@ class AboutSection extends StatelessWidget {
                     ],
                   ),
                   kGapLarge,
-                  SelectableText(
-                    'I have been working as a software developer for over 10 years. '
-                    'I mainly developed Flutter applications (Android, iOS, Web Apps), '
-                    'iOS application using SwiftUI, and websites using WordPress and React. '
-                    'I have also developed backend using Node.js and Python.'
-                    '\n\n'
-                    'Teaching software development is also my side business.'
-                    'I had held offline and online courses about SwiftUI and iOS app development '
-                    'in a university in Hong Kong. Feel free to contact me for any teaching collaboration.',
-                    style: DNTextStyles.b1.copyWith(
-                      color: AppColors.black.shade300,
+                  Padding(
+                    padding: const EdgeInsets.all(AppDimens.paddingTiny),
+                    child: SelectableText(
+                      AppStrings.aboutText,
+                      style: DNTextStyles.b1.copyWith(
+                        color: AppColors.black.shade400,
+                        fontWeight: FontWeight.w300,
+                        letterSpacing: 0.0,
+                        height: 1.8,
+                      ),
                     ),
                   ),
                 ],
@@ -93,30 +90,34 @@ class AboutSection extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppDimens.paddingText),
         child: DNCard(
-          child: Column(
-            children: [
-              kGapSmaller,
-              Icon(
-                icon,
-                color: AppColors.primaryColor,
-                size: AppDimens.iconSmall,
-              ),
-              kGapSmall,
-              Text(
-                title,
-                style: DNTextStyles.b3.semiBold.copyWith(
-                  color: AppColors.white,
+          child: SizedBox(
+            height: 120,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                kGapSmaller,
+                Icon(
+                  icon,
+                  color: AppColors.primaryColor,
+                  size: AppDimens.iconSmall,
                 ),
-              ),
-              kGapText,
-              Text(
-                detail,
-                style: DNTextStyles.b4.copyWith(
-                  color: AppColors.black.shade200,
+                kGapSmall,
+                Text(
+                  title,
+                  style: DNTextStyles.b2.semiBold.copyWith(
+                    color: AppColors.white,
+                  ),
                 ),
-              ),
-              kGapSmaller,
-            ],
+                kGapText,
+                Text(
+                  detail,
+                  style: DNTextStyles.b4.copyWith(
+                    color: AppColors.black.shade200,
+                  ),
+                ),
+                kGapSmaller,
+              ],
+            ),
           ),
         ),
       ),

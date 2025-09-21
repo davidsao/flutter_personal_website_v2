@@ -1,10 +1,8 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
-
-import '../../app/app_colors.dart';
-import '../../app/app_dimens.dart';
 
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({required this.offset, super.key});

@@ -1,9 +1,7 @@
 import 'dart:ui';
 
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
-
-import 'gradient_box_border.dart';
-import 'hollow_shadow_painter.dart';
 
 class GlassContainer extends StatelessWidget {
   final double opacity;

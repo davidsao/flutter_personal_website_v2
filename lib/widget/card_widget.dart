@@ -1,11 +1,10 @@
 import 'dart:ui';
 
+import 'package:dartx/dartx.dart';
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
 
-import '../app/app_colors.dart';
-import '../app/app_dimens.dart';
-
-class DNCard extends StatelessWidget {
+class DNCard extends StatefulWidget {
   final Widget child;
   final bool loading;
   final double? radius;
@@ -23,7 +22,7 @@ class DNCard extends StatelessWidget {
     this.radius,
     this.onPressed,
     this.backgroundColor,
-    this.hasShadow = true,
+    this.hasShadow = false,
     this.shadow,
     this.loading = false,
     this.blurSigma = 0,
@@ -32,49 +31,72 @@ class DNCard extends StatelessWidget {
   });
 
   @override
+  State<DNCard> createState() => _DNCardState();
+}
+
+class _DNCardState extends State<DNCard> {
+  bool isHovering = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: 200.milliseconds,
+      curve: Curves.easeOut,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
-          Radius.circular(radius ?? AppDimens.radiusMedium),
+          Radius.circular(widget.radius ?? AppDimens.radiusMedium),
         ),
-        color: backgroundColor ?? AppColors.cardBackground.withAlpha(224),
+        color:
+            widget.backgroundColor ?? AppColors.cardBackground.withAlpha(224),
         boxShadow: [
-          if (hasShadow && !loading)
-            shadow ??
+          if (widget.hasShadow && !widget.loading)
+            widget.shadow ??
                 BoxShadow(
                   color: AppColors.black.withAlpha(48),
-                  blurRadius: 25,
+                  blurRadius: 24,
                   offset: const Offset(0, 15), // changes position of shadow
-                ),
+                )
+          else if (isHovering)
+            BoxShadow(
+              color: AppColors.hoverCardShadow.withAlpha(184),
+              blurRadius: 12,
+              offset: const Offset(0, 0), // changes position of shadow
+            )
+          else
+            BoxShadow(
+              color: AppColors.black.withAlpha(48),
+              blurRadius: 24,
+              offset: const Offset(0, 15), // changes position of shadow
+            ),
         ],
       ),
       margin: EdgeInsets.zero,
-      padding: padding ?? EdgeInsets.all(AppDimens.paddingMedium),
+      padding: widget.padding ?? EdgeInsets.all(AppDimens.paddingMedium),
       child: ClipRect(
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
-          child: Card(
-            elevation: 0,
-            color: Colors.transparent,
-            margin: EdgeInsets.zero,
-            child: (onPressed != null && !loading)
-                ? InkWell(
-                    onTap: () => onPressed?.call(),
-                    splashColor: splashColor ?? AppColors.black.shade100,
-                    highlightColor: splashColor ?? AppColors.black.shade100,
-                    child: Ink(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(radius ?? 0),
-                        ),
-                        color: Colors.transparent,
-                      ),
-                      child: child,
-                    ),
-                  )
-                : child,
+          filter: ImageFilter.blur(
+            sigmaX: widget.blurSigma,
+            sigmaY: widget.blurSigma,
+          ),
+          child: InkWell(
+            onTap: () => widget.onPressed?.call(),
+            onHover: (hovering) {
+              setState(() {
+                isHovering = hovering;
+              });
+            },
+            splashColor: widget.splashColor ?? AppColors.black.shade100,
+            highlightColor: widget.splashColor ?? AppColors.black.shade100,
+            child: Ink(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(widget.radius ?? 0),
+                ),
+                color: Colors.transparent,
+              ),
+              child: widget.child,
+            ),
           ),
         ),
       ),

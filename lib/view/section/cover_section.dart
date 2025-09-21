@@ -1,10 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:davidngwebsite/app/app_text.dart';
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
-import '../../app/app_colors.dart';
-import '../../app/app_dimens.dart';
 
 class CoverSection extends StatelessWidget {
   const CoverSection({super.key});
@@ -29,17 +26,11 @@ class CoverSection extends StatelessWidget {
             color: AppColors.white.withAlpha(128),
           ),
           child: AnimatedTextKit(
-            animatedTexts: [
-              TypewriterAnimatedText('A Front-end Developer', speed: 60.ms),
-              TypewriterAnimatedText('A Flutter App Developer', speed: 60.ms),
-              TypewriterAnimatedText('A Native iOS Developer', speed: 60.ms),
-              TypewriterAnimatedText('A tech nerd and tech geek', speed: 60.ms),
-            ],
+            animatedTexts: AppStrings.coverText.map((text) {
+              return TypewriterAnimatedText(text, speed: 60.ms);
+            }).toList(),
             repeatForever: true,
             pause: 3000.ms,
-            onTap: () {
-              print("Tap Event");
-            },
           ),
         ),
       ],

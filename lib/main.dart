@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:davidngwebsite/view/home_page.dart';
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
 
 void main() {

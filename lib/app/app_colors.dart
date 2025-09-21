@@ -1,4 +1,4 @@
-import 'package:davidngwebsite/extension/extension_color.dart';
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -97,6 +97,7 @@ class AppColors {
   static const Color background = Color(0xFF181C34);
   static const Color cardBackground = Color(0xFF313F88);
   static const Color buttonDisabled = Color(0xFFF0D7CE);
+  static const Color hoverCardShadow = Color(0xFF4DB5FF);
   static const Color textTitle = Color(0xFF4DB5FF);
   static const Color textPrimary = Color(0xFF9EABD3);
   static const Color textSecondary = Color(0xFF616E88);

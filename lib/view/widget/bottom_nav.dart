@@ -1,12 +1,8 @@
 import 'dart:math';
 
-import 'package:davidngwebsite/model/enums/nav_enums.dart';
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
-import '../../app/app_colors.dart';
-import '../../app/app_dimens.dart';
-import '../../widget/glass_container.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({

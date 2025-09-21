@@ -1,14 +1,5 @@
-import 'package:davidngwebsite/app/app_dimens.dart';
-import 'package:davidngwebsite/view/section/about_section.dart';
-import 'package:davidngwebsite/view/section/cover_section.dart';
-import 'package:davidngwebsite/view/section/experience_section.dart';
-import 'package:davidngwebsite/view/widget/background.dart';
-import 'package:davidngwebsite/view/widget/bottom_nav.dart';
-import 'package:davidngwebsite/widget/responsive.dart';
+import 'package:davidngwebsite/index.dart';
 import 'package:flutter/material.dart';
-
-import '../app/app_colors.dart';
-import '../model/enums/nav_enums.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
